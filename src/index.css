@@ -1,6 +1,8 @@
 * {
   padding: 0%;
   margin: 0%;
+  box-sizing: border-box;
+  font-family: Quicksand,sans-serif;
 }
 
 .navbar { 
@@ -27,9 +29,17 @@
   padding: 2rem;
 }
 
-.nav-container div h1, p{ 
+.nav-container  h1, p{ 
   text-transform: uppercase; 
-  padding-top: 1rem;
+  padding-top: 1rem; 
+  color: rgba(226, 124, 6, 0.692) ;
+  text-shadow: 2px 4px #dbd2d2;
+}
+
+
+.nav-container  p{
+   color: #e2a452; 
+   text-shadow: none;
 }
 
 .search {
@@ -38,9 +48,114 @@
   border-radius: 30px;
   color: #646464;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 18px;
   margin-right: -2rem;
-  padding: 0.65rem 1rem;
+  padding: 0.95rem 1rem;
   transition: all .5s ease-in-out;
   width: 36.5em;
+   box-shadow: 2px 8px 12px 0 rgba(226, 124, 6, 0.692);
+}
+
+.search:focus { 
+  box-shadow: 2px 8px 12px 0 rgba(226, 124, 6, 0.692); 
+  border-bottom:1px solid rgba(19, 137, 141, 0.692);
+  outline: none;
+}
+
+.searchIcon {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color:rgba(226, 124, 6, 0.692);
+  padding-right: 30px; 
+}
+
+.container{
+  grid-gap: 40px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 35px 11% 100px;
+}
+
+.card {
+  border-radius: 25px;
+  box-shadow: 2px 8px 12px 0 rgba(19, 137, 141, 0.692);
+  height: 195px;
+  padding: 1.7rem 1.5rem;  
+}
+
+.card .card-info{
+  align-items: center;
+  display: flex;
+  gap: 40px;
+  justify-content: center; 
+}
+ 
+.card .card-info .image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 1px 2px 3px 0 rgba(19, 137, 141, 0.692);
+}
+
+.card .card-info .image img{
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  
+}
+
+.card .card-info .content p{
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 500;
+  color: rgb(245, 93, 6);
+  text-shadow: none;
+}
+
+.buttton { 
+  width: 45%;
+  margin: 35px 0 0 80px; 
+  
+}
+
+.buttton button {
+  background: linear-gradient(-225deg, #f79256 9%, #3076cc 20%, #67d3b2 60%, #36d8a7 100%);
+  width: 100%;
+  display: flex; 
+  padding: 0.9rem 1.3rem;
+  border: none;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 25px;
+  color: rgb(238, 118, 5);
+}
+
+.buttton button:hover {
+  background:  #36d8a7ce ;
+  
+}
+.buttton button span {
+  color:  rgba(238, 40, 5, 0.87);
+  width: 100%;
+  display: flex;
+  font-size: 20px;
+  font-weight: bolder;
+  
+}
+.details-container {
+  background: #3076cc;
+}
+
+.details-info{
+  background: #36d8a7;
+  grid-gap: 40px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: 1fr 1fr ;
+  padding: 35px 11% 100px;
 }
