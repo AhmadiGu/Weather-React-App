@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import { GiFastBackwardButton } from 'react-icons/gi';
 import { detailsLocation } from '../redux/details';
+import thunderImg from '../images/thunderstor.jpg';
+import clearImg from '../images/clear.webp';
+import cloudsImg from '../images/cloud.webp';
+import drizzleImg from '../images/dizzel.jpg';
+import rainImg from '../images/rain.jpg';
+import snowImg from '../images/snow.webp';
 
 const Details = () => {
   const location = useLocation();
@@ -18,26 +25,90 @@ const Details = () => {
     dispatch(detailsLocation({ lat, lon }));
   }, [dispatch]);
 
-  const detalisData = useSelector((state) => state.details.detailsList);
+  const weather = useSelector((state) => state.details.detailsList);
 
-  // let {coordlat} = detalis
-  // const value = Object.values(detalis)
-  // let weather = value[1]
-  // let description = weather.map((country) => country.description)
-  // const weatherDec = Object.entries(weather)
-  // console.log('count0', weather)
-  // console.log('count0', detalisData.clouds.all)
-  // Object.values(value[1])
-  // console.log('weat', description )
-  // console.log('weat', description )
-  // console.log('dec', coordlat )
-  const me = detalisData.clouds;
-  console.log('count0', me);
- // me.forEach((me) => console.log('c', me.all))
+  const main = weather[0]?.main;
+  const description = weather[0]?.description;
+
+  const background = () => {
+    const desc = main;
+    if (desc === 'Clear') {
+      return { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${clearImg})` };
+    }
+    if (desc === 'Thunder') {
+      return { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${thunderImg})` };
+    }
+    if (desc === 'Snow') {
+      return { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${snowImg})` };
+    }
+    if (desc === 'Rain') {
+      return { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${rainImg})` };
+    }
+    if (desc === 'Drizzle') {
+      return { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${drizzleImg})` };
+    }
+
+    return { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(${cloudsImg})` };
+  };
+
   return (
     <>
       {
+        data.map((country) => (
 
+          <div key={uuidv4()} className="details-container" style={background()}>
+            <div className="top">
+
+              <Link to="/">
+                <button type="button" className="icon">
+                  <span>
+                    <GiFastBackwardButton />
+                    {' '}
+                  </span>
+                </button>
+              </Link>
+
+              <div className="corner">
+                <div className="image"><img src={country.flag} alt="flag" /></div>
+                <div className="corner-content">
+                  <p className="title">
+                    {' '}
+                    time Zone:
+                    {country.timezones}
+                  </p>
+                  <p className="title">
+                    {' '}
+                    country Region:
+                    {country.region}
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <div className="details-info">
+              <p className="title">Weather</p>
+              {' '}
+              <p className="content">{ description}</p>
+              <p className="title">country Name</p>
+              {' '}
+              <p className="content">{country.name}</p>
+              <p className="title"> country Population</p>
+              {' '}
+              <p className="content">{country.population}</p>
+              <p className="title"> country Capital</p>
+              {' '}
+              <p className="content">{country.capital}</p>
+
+              <p className="title"> country Subregion</p>
+              {' '}
+              <p className="content">{country.subregion}</p>
+
+            </div>
+
+          </div>
+
+        ))
       }
 
     </>
