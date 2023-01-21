@@ -9,7 +9,8 @@ const initialState = {
 
 export const detailsLocation = createAsyncThunk('details/getDetalis', async (params) => {
   const data = await getDetalis(params.lat, params.lon);
-  return data;
+  const { weather } = data;
+  return weather;
 });
 
 const detailsSlice = createSlice({

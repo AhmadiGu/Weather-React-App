@@ -5,6 +5,7 @@ const initialState = {
   loading: false,
   locationList: [],
   error: '',
+  continent: 'All',
 };
 
 export const getLocation = createAsyncThunk('locations/getLocation', async () => {
@@ -15,6 +16,11 @@ export const getLocation = createAsyncThunk('locations/getLocation', async () =>
 const locationSlice = createSlice({
   name: 'locations',
   initialState,
+  reducers: {
+    setContinent: (state, action) => {
+      state.continent = action.payload;
+    },
+  },
 
   extraReducers: (builder) => {
     builder.addCase(getLocation.pending, (stateData) => {
@@ -39,5 +45,21 @@ const locationSlice = createSlice({
     });
   },
 });
+
+const countriesSelector = (state) => {
+  if (state.locations.continent === 'All') {
+    return state.locations.locationList;
+  }
+  return state.locations.locationList.filter(
+    (location) => location.region === state.locations.continent,
+  );
+};
+
+export const { setContinent } = locationSlice.actions;
+export const changeContinent = createAsyncThunk('locations/changeContinet', async (params, { dispatch }) => {
+  dispatch(setContinent(params));
+});
+
+export { countriesSelector };
 
 export default locationSlice.reducer;
