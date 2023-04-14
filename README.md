@@ -64,7 +64,7 @@
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-## Persentation (https://www.loom.com/share/d5f37d0c844546218b5b118ade6fbc53)
+
 
 - [Live Demo Link](https://weather-app-hub.netlify.app)
 
