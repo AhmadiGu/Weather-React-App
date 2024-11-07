@@ -108,7 +108,7 @@ p {
   grid-gap: 40px;
   display: grid;
   gap: 40px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   padding: 35px 11% 100px;
 }
 
@@ -184,6 +184,7 @@ p {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .details-info {
@@ -191,7 +192,7 @@ p {
   grid-gap: 10px;
   display: grid;
   width: 60%;
-  margin-top: 14%;
+  margin-top: 1%;
   grid-template-columns: 1fr 1fr;
   padding: 65px 1%;
 }
@@ -232,10 +233,10 @@ p.content {
   background: transparent;
   box-shadow: 2px 8px 12px 0 rgba(226, 124, 6, 0.692);
   border-bottom: 1px solid rgba(19, 137, 141, 0.692);
-  display: flex;
+  display: inline-flex;
   border-radius: 25px;
   justify-content: space-between;
-  width: 32%;
+  width: 42%;
   padding: 2%;
 }
 
